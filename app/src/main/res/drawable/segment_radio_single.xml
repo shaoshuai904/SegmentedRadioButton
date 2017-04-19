@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/shape_segment_single_grey_press" android:state_pressed="true"/>
-    <item android:drawable="@drawable/shape_segment_single_grey" android:state_checked="true"/>
-    <item android:drawable="@drawable/shape_segment_single_white"/>
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="@dimen/angle_value"/>
+            <solid android:color="@color/segment_btn_pressed"/>
+            <stroke
+                android:width="@dimen/divide_line"
+                android:color="@color/segment_btn_line"/>
+        </shape>
+    </item>
+
+    <item android:state_checked="true">
+        <shape>
+            <corners android:radius="@dimen/angle_value"/>
+            <solid android:color="@color/segment_btn_checked"/>
+            <stroke
+                android:width="@dimen/divide_line"
+                android:color="@color/segment_btn_line"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <corners android:radius="@dimen/angle_value"/>
+            <solid android:color="@color/segment_btn_def"/>
+            <stroke
+                android:width="@dimen/divide_line"
+                android:color="@color/segment_btn_line"/>
+        </shape>
+    </item>
 
 </selector>

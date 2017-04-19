@@ -3,33 +3,29 @@
 
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="@color/btn_grey_press"/>
-
+            <solid android:color="@color/segment_btn_pressed"/>
             <stroke
                 android:width="@dimen/divide_line"
-                android:color="@color/btn_line"/>
+                android:color="@color/segment_btn_line"/>
         </shape>
     </item>
 
     <item android:state_checked="true">
         <shape>
-            <solid android:color="@color/btn_grey"/>
-
+            <solid android:color="@color/segment_btn_checked"/>
             <stroke
                 android:width="@dimen/divide_line"
-                android:color="@color/btn_line"/>
+                android:color="@color/segment_btn_line"/>
         </shape>
     </item>
 
     <item>
         <shape>
-            <solid android:color="@color/btn_white"/>
-
+            <solid android:color="@color/segment_btn_def"/>
             <stroke
                 android:width="@dimen/divide_line"
-                android:color="@color/btn_line"/>
+                android:color="@color/segment_btn_line"/>
         </shape>
-
     </item>
 
 </selector>

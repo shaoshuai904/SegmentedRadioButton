@@ -5,11 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
     <!--custom-->
-    <color name="btn_white">#EAEAEA</color>
-    <color name="btn_grey">#6B7478</color>
-    <color name="btn_grey_press">#525658</color>
-
-    <color name="btn_line">@android:color/black</color>
-    <color name="btn_line11">#AFAFAF</color>
+    <color name="segment_btn_def">#EAEAEA</color>
+    <color name="segment_btn_checked">#6B7478</color>
+    <color name="segment_btn_pressed">#525658</color>
+    <color name="segment_btn_line">@android:color/black</color>
 
 </resources>
