@@ -2,7 +2,6 @@ package com.makeramen.segmented;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -22,7 +21,9 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
     SegmentedRadioGroup srg_single;
 
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         segmentText = (SegmentedRadioGroup) findViewById(R.id.segment_text);
         segmentText.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.button_one:
                         showToast("One");
@@ -66,7 +67,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
 
 
     @Override
-    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (group == segmentImg) {
             switch (checkedId) {
                 case R.id.button_add:

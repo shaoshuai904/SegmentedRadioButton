@@ -7,7 +7,7 @@ android {
         applicationId "com.makeramen.segmented"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 3
+        versionCode 4
         versionName "1.0"
     }
     buildTypes {

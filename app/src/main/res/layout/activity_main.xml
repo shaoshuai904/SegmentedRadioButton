@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:custom="http://schemas.android.com/apk/res/com.makeramen.segmented"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <com.makeramen.segmented.custom.SegmentedRadioGroup
         android:id="@+id/segment_text"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_margin="5dip"
-        android:checkedButton="@+id/button_one"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@id/button_one"
+            android:id="@+id/button_one"
             style="@style/RadioBtnStyle"
-            android:text="One"/>
+            android:text="One" />
 
         <RadioButton
             android:id="@+id/button_two"
             style="@style/RadioBtnStyle"
-            android:text="Two"/>
+            android:text="Two" />
 
         <RadioButton
             android:id="@+id/button_three"
             style="@style/RadioBtnStyle"
-            android:text="Three"/>
+            android:text="Three" />
 
         <RadioButton
             android:id="@+id/button_fore"
             style="@style/RadioBtnStyle"
-            android:text="Fore"/>
+            android:text="Fore" />
     </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
     <com.makeramen.segmented.custom.SegmentedRadioGroup
@@ -52,17 +51,17 @@
         <com.makeramen.segmented.custom.CenteredRadioImageButton
             android:id="@id/button_add"
             style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_add"/>
+            custom:msButton="@android:drawable/ic_menu_add" />
 
         <com.makeramen.segmented.custom.CenteredRadioImageButton
             android:id="@+id/button_call"
             style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_call"/>
+            custom:msButton="@android:drawable/ic_menu_call" />
 
         <com.makeramen.segmented.custom.CenteredRadioImageButton
             android:id="@+id/button_camera"
             style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_camera"/>
+            custom:msButton="@android:drawable/ic_menu_camera" />
     </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
     <com.makeramen.segmented.custom.SegmentedRadioGroup
@@ -77,13 +76,13 @@
             android:id="@+id/bt_view1"
             style="@style/RadioBtnStyle"
             android:button="@android:drawable/ic_menu_call"
-            android:text="111"/>
+            android:text="111" />
 
         <RadioButton
             android:id="@+id/bt_view2"
             style="@style/RadioBtnStyle"
             android:button="@android:drawable/ic_menu_camera"
-            android:text="222"/>
+            android:text="222" />
     </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
     <com.makeramen.segmented.custom.SegmentedRadioGroup
@@ -96,7 +95,7 @@
         <RadioButton
             android:id="@+id/bt_single1"
             style="@style/RadioBtnStyle"
-            android:text="222"/>
+            android:text="222" />
     </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
 </LinearLayout>
