@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -6,8 +8,8 @@ android {
     defaultConfig {
         applicationId "com.makeramen.segmented"
         minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 4
+        targetSdkVersion 28
+        versionCode 5
         versionName "1.0"
     }
     buildTypes {
@@ -21,4 +23,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+repositories {
+    mavenCentral()
 }

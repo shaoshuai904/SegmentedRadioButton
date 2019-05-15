@@ -2,9 +2,13 @@ package com.makeramen.segmented.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.RadioGroup;
 
 import com.makeramen.segmented.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 分段式 RadioGroup
@@ -25,24 +29,38 @@ public class SegmentedRadioGroup extends RadioGroup {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
         changeButtonsImages();
     }
 
     private void changeButtonsImages() {
-        int count = super.getChildCount();
-
+        // set padding 1px
         this.setBackgroundResource(R.drawable.segment_radio_single);
         int line = (int) getResources().getDimension(R.dimen.divide_line);
         this.setPadding(line, line, line, line);
 
-        if (count > 1) {
-            super.getChildAt(0).setBackgroundResource(R.drawable.segment_radio_left);
-            for (int i = 1; i < count - 1; i++) {
-                super.getChildAt(i).setBackgroundResource(R.drawable.segment_radio_middle);
+        // set item background
+        List<Integer> showList = new ArrayList<Integer>();
+        for (int i = 0; i < super.getChildCount(); i++) {
+            if (super.getChildAt(i).getVisibility() == View.VISIBLE) {
+                showList.add(i);
             }
-            super.getChildAt(count - 1).setBackgroundResource(R.drawable.segment_radio_right);
+//            Log.e("visibility", i + "  :  " + (super.getChildAt(i).getVisibility() == View.VISIBLE));
+        }
+
+        int count = showList.size();
+        if (count > 1) {
+            super.getChildAt(showList.get(0)).setBackgroundResource(R.drawable.segment_radio_left);
+            for (int i = 1; i < count - 1; i++) {
+                super.getChildAt(showList.get(i)).setBackgroundResource(R.drawable.segment_radio_middle);
+            }
+            super.getChildAt(showList.get(count - 1)).setBackgroundResource(R.drawable.segment_radio_right);
         } else if (count == 1) {// 只有一个，纯粹是二逼
-            super.getChildAt(0).setBackgroundResource(R.drawable.segment_radio_single);
+            super.getChildAt(showList.get(0)).setBackgroundResource(R.drawable.segment_radio_single);
         }
     }
 }
