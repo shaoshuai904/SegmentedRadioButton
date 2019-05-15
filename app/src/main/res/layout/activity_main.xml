@@ -13,76 +13,58 @@
         android:text="@string/app_name_cn"
         android:textSize="18sp" />
 
-    <com.makeramen.segmented.custom.SegmentedRadioGroup
-        android:id="@+id/srg_single"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dip"
-        android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
-        <RadioButton
-            android:id="@+id/bt_single1"
-            style="@style/RadioBtnStyle"
-            android:text="222" />
+        <com.makeramen.segmented.custom.SegmentedRadioGroup
+            android:id="@+id/srg_single"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
 
-    </com.makeramen.segmented.custom.SegmentedRadioGroup>
+            <RadioButton
+                android:id="@+id/bt_single1"
+                style="@style/RadioBtnStyle"
+                android:text="222" />
 
-    <com.makeramen.segmented.custom.SegmentedRadioGroup
-        android:id="@+id/srg_bt"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dip"
-        android:checkedButton="@id/bt_view1"
-        android:orientation="horizontal">
+        </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
-        <RadioButton
-            android:id="@+id/bt_view1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@android:drawable/ic_menu_call"
-            android:paddingLeft="10dp"
-            android:text="111"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/radio_colors" />
+        <com.makeramen.segmented.custom.SegmentedRadioGroup
+            android:id="@+id/srg_bt"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:checkedButton="@id/bt_view1"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/bt_view2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@android:drawable/ic_menu_camera"
-            android:gravity="center"
-            android:text="222"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/radio_colors" />
+            <RadioButton
+                android:id="@+id/bt_view1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@android:drawable/ic_menu_call"
+                android:paddingLeft="10dp"
+                android:text="111"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/radio_colors" />
 
-    </com.makeramen.segmented.custom.SegmentedRadioGroup>
+            <RadioButton
+                android:id="@+id/bt_view2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@android:drawable/ic_menu_camera"
+                android:gravity="center"
+                android:text="222"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/radio_colors" />
 
-    <com.makeramen.segmented.custom.SegmentedRadioGroup
-        android:id="@+id/segment_img"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dip"
-        android:checkedButton="@id/button_call"
-        android:orientation="horizontal">
+        </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
-        <com.makeramen.segmented.custom.CenteredRadioImageButton
-            android:id="@+id/button_add"
-            style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_add" />
-
-        <com.makeramen.segmented.custom.CenteredRadioImageButton
-            android:id="@+id/button_call"
-            style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_call" />
-
-        <com.makeramen.segmented.custom.CenteredRadioImageButton
-            android:id="@+id/button_camera"
-            style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_camera" />
-    </com.makeramen.segmented.custom.SegmentedRadioGroup>
-
+    </LinearLayout>
 
     <com.makeramen.segmented.custom.SegmentedRadioGroup
         android:id="@+id/segment_text"
@@ -156,5 +138,34 @@
             android:text="显示 fore" />
     </LinearLayout>
 
+    <com.makeramen.segmented.custom.SegmentedRadioGroup
+        android:id="@+id/segment_img"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dip"
+        android:checkedButton="@id/button_call"
+        android:orientation="horizontal">
+
+        <com.makeramen.segmented.custom.CenteredRadioImageButton
+            android:id="@+id/button_add"
+            style="@style/RadioBtnStyle"
+            custom:msButton="@android:drawable/ic_menu_add" />
+
+        <com.makeramen.segmented.custom.CenteredRadioImageButton
+            android:id="@+id/button_call"
+            style="@style/RadioBtnStyle"
+            custom:msButton="@android:drawable/ic_menu_call" />
+
+        <com.makeramen.segmented.custom.CenteredRadioImageButton
+            android:id="@+id/button_camera"
+            style="@style/RadioBtnStyle"
+            custom:msButton="@android:drawable/ic_menu_camera" />
+    </com.makeramen.segmented.custom.SegmentedRadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#abc" />
 
 </LinearLayout>

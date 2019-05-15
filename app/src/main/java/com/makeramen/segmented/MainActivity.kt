@@ -2,7 +2,10 @@ package com.makeramen.segmented
 
 import android.app.Activity
 import android.os.Bundle
+import android.support.v4.view.ViewPager
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,7 +22,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // SegmentedRadioGroup
+
         srg_single.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
             if (checkedId == R.id.bt_single1) {
                 showToast("一个")
@@ -32,15 +35,62 @@ class MainActivity : Activity() {
                 showToast("222")
             }
         }
+
+        initViewPagerListener()
+        initCheckBoxListener()
+
+    }
+
+    private fun initViewPagerListener() {
+        val ids = arrayListOf(
+                R.id.button_add,
+                R.id.button_call,
+                R.id.button_camera
+        )
+        val views = arrayListOf<View>(
+                getView(android.R.drawable.ic_menu_add),
+                getView(android.R.drawable.ic_menu_call),
+                getView(android.R.drawable.ic_menu_camera)
+        )
+
         segment_img.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
             when (checkedId) {
-                R.id.button_add -> showToast("Add")
-                R.id.button_call -> showToast("Call")
-                R.id.button_camera -> showToast("Camera")
+                R.id.button_add -> {
+                    vp_view_pager.currentItem = 0
+                    showToast("Add")
+                }
+                R.id.button_call -> {
+                    vp_view_pager.currentItem = 1
+                    showToast("Call")
+                }
+                R.id.button_camera -> {
+                    vp_view_pager.currentItem = 2
+                    showToast("Camera")
+                }
                 else -> {
                 }
             }
         }
+        // ViewPager
+        vp_view_pager.adapter = BasePagerAdapter(views)
+        vp_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
+            override fun onPageScrollStateChanged(state: Int) {}
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+            override fun onPageSelected(position: Int) {
+                segment_img.check(ids[position])
+            }
+        })
+
+        // default setting
+        segment_img.check(ids[0])
+
+    }
+
+    private fun initCheckBoxListener() {
+        // SegmentedRadioGroup
         segment_text.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rb_one -> showToast("One")
@@ -51,7 +101,6 @@ class MainActivity : Activity() {
                 }
             }
         }
-
         // CheckBox
         cb_one.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -89,9 +138,14 @@ class MainActivity : Activity() {
                 rb_fore.visibility = View.GONE
             }
         }
-
     }
 
+    private fun getView(resId: Int): ImageView {
+        val imageView = ImageView(this)
+        imageView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        imageView.setImageResource(resId)
+        return imageView
+    }
 
     private fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
