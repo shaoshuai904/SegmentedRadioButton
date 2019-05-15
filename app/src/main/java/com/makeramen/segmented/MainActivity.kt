@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * show demo
  *
  * @author maple
- * @time 17/3/29
+ * @time 2017/3/29
  */
 class MainActivity : Activity() {
 
@@ -22,7 +22,13 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initRadioGroupListener()
+        initViewPagerListener()
+        initCheckBoxListener()
 
+    }
+
+    private fun initRadioGroupListener() {
         srg_single.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
             if (checkedId == R.id.bt_single1) {
                 showToast("一个")
@@ -35,10 +41,6 @@ class MainActivity : Activity() {
                 showToast("222")
             }
         }
-
-        initViewPagerListener()
-        initCheckBoxListener()
-
     }
 
     private fun initViewPagerListener() {
