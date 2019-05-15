@@ -53,32 +53,12 @@ class MainActivity : Activity() {
                 getView(android.R.drawable.ic_menu_camera)
         )
 
+        // listener
         segment_img.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
-            when (checkedId) {
-                R.id.button_add -> {
-                    vp_view_pager.currentItem = 0
-                    showToast("Add")
-                }
-                R.id.button_call -> {
-                    vp_view_pager.currentItem = 1
-                    showToast("Call")
-                }
-                R.id.button_camera -> {
-                    vp_view_pager.currentItem = 2
-                    showToast("Camera")
-                }
-                else -> {
-                }
-            }
+            vp_view_pager.currentItem = ids.indexOf(checkedId)
         }
-        // ViewPager
         vp_view_pager.adapter = BasePagerAdapter(views)
-        vp_view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-
-            override fun onPageScrollStateChanged(state: Int) {}
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-
+        vp_view_pager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) {
                 segment_img.check(ids[position])
             }

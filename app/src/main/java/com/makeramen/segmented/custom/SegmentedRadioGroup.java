@@ -43,24 +43,25 @@ public class SegmentedRadioGroup extends RadioGroup {
         int line = (int) getResources().getDimension(R.dimen.divide_line);
         this.setPadding(line, line, line, line);
 
-        // set item background
-        List<Integer> showList = new ArrayList<Integer>();
+        // get visibility item view
+        List<View> showList = new ArrayList<View>();
         for (int i = 0; i < super.getChildCount(); i++) {
-            if (super.getChildAt(i).getVisibility() == View.VISIBLE) {
-                showList.add(i);
+            View view = super.getChildAt(i);
+            if (view.getVisibility() == View.VISIBLE) {
+                showList.add(view);
             }
-//            Log.e("visibility", i + "  :  " + (super.getChildAt(i).getVisibility() == View.VISIBLE));
         }
 
+        // set item background
         int count = showList.size();
         if (count > 1) {
-            super.getChildAt(showList.get(0)).setBackgroundResource(R.drawable.segment_radio_left);
+            showList.get(0).setBackgroundResource(R.drawable.segment_radio_left);
             for (int i = 1; i < count - 1; i++) {
-                super.getChildAt(showList.get(i)).setBackgroundResource(R.drawable.segment_radio_middle);
+                showList.get(i).setBackgroundResource(R.drawable.segment_radio_middle);
             }
-            super.getChildAt(showList.get(count - 1)).setBackgroundResource(R.drawable.segment_radio_right);
+            showList.get(count - 1).setBackgroundResource(R.drawable.segment_radio_right);
         } else if (count == 1) {// 只有一个，纯粹是二逼
-            super.getChildAt(showList.get(0)).setBackgroundResource(R.drawable.segment_radio_single);
+            showList.get(0).setBackgroundResource(R.drawable.segment_radio_single);
         }
     }
 }
