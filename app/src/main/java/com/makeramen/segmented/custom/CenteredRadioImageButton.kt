@@ -40,20 +40,21 @@ class CenteredRadioImageButton : AppCompatRadioButton {
             // 缩放图像以适应里面的按钮
             val imgHeight = image!!.intrinsicHeight
             val imgWidth = image!!.intrinsicWidth
-            val btnWidth = width
-            val btnHeight = height
             val scale: Float
 
-            if (imgWidth <= btnWidth && imgHeight <= btnHeight) {
-                scale = 1.0f
+            scale = if (imgWidth <= width && imgHeight <= height) {
+                1.0f
             } else {
-                scale = Math.min(btnWidth.toFloat() / imgWidth.toFloat(), btnHeight.toFloat() / imgHeight.toFloat())
+                Math.min(width.toFloat() / imgWidth.toFloat(),
+                        height.toFloat() / imgHeight.toFloat())
             }
 
-            val dx = ((btnWidth - imgWidth * scale) * 0.5f + 0.5f).toInt()
-            val dy = ((btnHeight - imgHeight * scale) * 0.5f + 0.5f).toInt()
+            val dx = ((width - imgWidth * scale) * 0.5f + 0.5f).toInt()
+            val dy = ((height - imgHeight * scale) * 0.5f + 0.5f).toInt()
 
-            image!!.setBounds(dx, dy, (dx + imgWidth * scale).toInt(), (dy + imgHeight * scale).toInt())
+            image!!.setBounds(dx, dy,
+                    (dx + imgWidth * scale).toInt(),
+                    (dy + imgHeight * scale).toInt())
 
             image!!.draw(canvas)
         }
