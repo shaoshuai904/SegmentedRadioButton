@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bar="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,7 +39,10 @@
             android:layout_height="50dp"
             android:layout_margin="5dp"
             android:checkedButton="@id/bt_view1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            bar:bar_checked_color="@color/segment_btn_checked"
+            bar:bar_color="@color/segment_btn_def"
+            bar:bar_pressed_color="@color/segment_btn_pressed">
 
             <RadioButton
                 android:id="@+id/bt_view1"
@@ -74,7 +78,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
+        android:checkedButton="@id/rb_two"
+        android:orientation="horizontal"
+        bar:bar_checked_color="#009688"
+        bar:bar_color="#EAEAEA"
+        bar:bar_pressed_color="#01675E">
 
         <RadioButton
             android:id="@+id/rb_one"
@@ -144,7 +152,10 @@
         android:layout_height="50dp"
         android:layout_margin="5dip"
         android:checkedButton="@id/button_call"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        bar:bar_checked_color="#2C97DE"
+        bar:bar_color="#ffffff"
+        bar:bar_pressed_color="#2C97DE">
 
         <com.makeramen.segmented.custom.CenteredRadioImageButton
             android:id="@+id/button_add"
