@@ -7,7 +7,7 @@ android {
     buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.makeramen.segmented"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 5
         versionName "1.0"

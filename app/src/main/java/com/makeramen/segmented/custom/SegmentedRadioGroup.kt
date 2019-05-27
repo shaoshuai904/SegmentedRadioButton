@@ -45,6 +45,7 @@ class SegmentedRadioGroup : RadioGroup {
 
         ta.recycle()
     }
+
 //    override fun onFinishInflate() {
 //        super.onFinishInflate()
 //    }
@@ -56,8 +57,7 @@ class SegmentedRadioGroup : RadioGroup {
 
     private fun changeButtonsImages() {
         // set padding 1px
-//        this.setBackgroundResource(R.drawable.segment_radio_single)
-        this.setBackgroundDrawable(getRadioDrawable(R.drawable.shape_radio_single))
+        this.background = getRadioDrawable(R.drawable.shape_radio_single)
         val line = resources.getDimension(R.dimen.divide_line).toInt()
         this.setPadding(line, line, line, line)
 
@@ -72,17 +72,13 @@ class SegmentedRadioGroup : RadioGroup {
         // set item background
         val count = showList.size
         if (count > 1) {
-//            showList[0].setBackgroundResource(R.drawable.segment_radio_left)
-            showList[0].setBackgroundDrawable(getRadioDrawable(R.drawable.shape_radio_left))
+            showList[0].background = getRadioDrawable(R.drawable.shape_radio_left)
             for (i in 1 until count - 1) {
-//                showList[i].setBackgroundResource(R.drawable.segment_radio_middle)
-                showList[i].setBackgroundDrawable(getRadioDrawable(R.drawable.shape_radio_middle))
+                showList[i].background = getRadioDrawable(R.drawable.shape_radio_middle)
             }
-//            showList[count - 1].setBackgroundResource(R.drawable.segment_radio_right)
-            showList[count - 1].setBackgroundDrawable(getRadioDrawable(R.drawable.shape_radio_right))
+            showList[count - 1].background = getRadioDrawable(R.drawable.shape_radio_right)
         } else if (count == 1) {// 只有一个，纯粹是二逼
-//            showList[0].setBackgroundResource(R.drawable.segment_radio_single)
-            showList[0].setBackgroundDrawable(getRadioDrawable(R.drawable.shape_radio_single))
+            showList[0].background = getRadioDrawable(R.drawable.shape_radio_single)
         }
     }
 
