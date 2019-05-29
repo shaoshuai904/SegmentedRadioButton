@@ -12,9 +12,7 @@ class BasePagerAdapter(var views: List<View>) : PagerAdapter() {
 
     override fun getCount() = views.size
 
-    override fun isViewFromObject(view: View, obj: Any): Boolean {
-        return view == obj
-    }
+    override fun isViewFromObject(view: View, obj: Any) = (view == obj)
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         container.addView(views[position])

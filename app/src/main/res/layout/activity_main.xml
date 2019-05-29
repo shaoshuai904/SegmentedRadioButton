@@ -1,182 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bar="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="@string/app_name_cn"
-        android:textSize="18sp" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@string/app_name_cn"
+            android:textSize="18sp" />
 
         <com.makeramen.segmented.custom.SegmentedRadioGroup
-            android:id="@+id/srg_single"
-            android:layout_width="80dp"
+            android:id="@+id/segment_text"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:checkedButton="@id/rb_two"
+            android:orientation="horizontal"
+            bar:bar_checked_color="#009688"
+            bar:bar_color="#EDEBEB"
+            bar:bar_pressed_color="#01675E">
 
             <RadioButton
-                android:id="@+id/bt_single1"
+                android:id="@+id/rb_one"
                 style="@style/RadioBtnStyle"
-                android:text="222" />
+                android:text="One" />
+
+            <RadioButton
+                android:id="@+id/rb_two"
+                style="@style/RadioBtnStyle"
+                android:text="Two" />
+
+            <RadioButton
+                android:id="@+id/rb_three"
+                style="@style/RadioBtnStyle"
+                android:text="Three" />
+
+            <RadioButton
+                android:id="@+id/rb_fore"
+                style="@style/RadioBtnStyle"
+                android:text="Fore" />
 
         </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <CheckBox
+                android:id="@+id/cb_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="显示 one" />
+
+            <CheckBox
+                android:id="@+id/cb_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="显示 two" />
+
+            <CheckBox
+                android:id="@+id/cb_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="显示 three" />
+
+            <CheckBox
+                android:id="@+id/cb_fore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="显示 fore" />
+        </LinearLayout>
+
         <com.makeramen.segmented.custom.SegmentedRadioGroup
-            android:id="@+id/srg_bt"
+            android:id="@+id/segment_img"
             android:layout_width="240dp"
             android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:checkedButton="@id/bt_view1"
+            android:layout_margin="5dip"
+            android:checkedButton="@id/button_call"
             android:orientation="horizontal"
-            bar:bar_checked_color="@color/segment_btn_checked"
-            bar:bar_color="@color/segment_btn_def"
-            bar:bar_pressed_color="@color/segment_btn_pressed">
+            bar:bar_checked_color="#2C97DE"
+            bar:bar_color="#ffffff"
+            bar:bar_pressed_color="#2C97DE">
 
-            <RadioButton
-                android:id="@+id/bt_view1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@android:drawable/ic_menu_call"
-                android:paddingLeft="10dp"
-                android:text="111"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/radio_colors" />
+            <com.makeramen.segmented.custom.CenteredRadioImageButton
+                android:id="@+id/button_add"
+                style="@style/RadioBtnStyle"
+                custom:ms_drawable="@android:drawable/ic_menu_add" />
 
-            <RadioButton
-                android:id="@+id/bt_view2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@android:drawable/ic_menu_camera"
-                android:gravity="center"
-                android:text="222"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/radio_colors" />
+            <com.makeramen.segmented.custom.CenteredRadioImageButton
+                android:id="@+id/button_call"
+                style="@style/RadioBtnStyle"
+                custom:ms_drawable="@android:drawable/ic_menu_call" />
 
+            <com.makeramen.segmented.custom.CenteredRadioImageButton
+                android:id="@+id/button_camera"
+                style="@style/RadioBtnStyle"
+                custom:ms_drawable="@android:drawable/ic_menu_camera" />
         </com.makeramen.segmented.custom.SegmentedRadioGroup>
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#abc" />
+
     </LinearLayout>
 
-    <com.makeramen.segmented.custom.SegmentedRadioGroup
-        android:id="@+id/segment_text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:checkedButton="@id/rb_two"
-        android:orientation="horizontal"
-        bar:bar_checked_color="#009688"
-        bar:bar_color="#EAEAEA"
-        bar:bar_pressed_color="#01675E">
-
-        <RadioButton
-            android:id="@+id/rb_one"
-            style="@style/RadioBtnStyle"
-            android:text="One" />
-
-        <RadioButton
-            android:id="@+id/rb_two"
-            style="@style/RadioBtnStyle"
-            android:text="Two" />
-
-        <RadioButton
-            android:id="@+id/rb_three"
-            style="@style/RadioBtnStyle"
-            android:text="Three" />
-
-        <RadioButton
-            android:id="@+id/rb_fore"
-            style="@style/RadioBtnStyle"
-            android:text="Fore" />
-
-    </com.makeramen.segmented.custom.SegmentedRadioGroup>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <CheckBox
-            android:id="@+id/cb_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="显示 one" />
-
-        <CheckBox
-            android:id="@+id/cb_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="显示 two" />
-
-        <CheckBox
-            android:id="@+id/cb_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="显示 three" />
-
-        <CheckBox
-            android:id="@+id/cb_fore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="显示 fore" />
-    </LinearLayout>
-
-    <com.makeramen.segmented.custom.SegmentedRadioGroup
-        android:id="@+id/segment_img"
-        android:layout_width="240dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dip"
-        android:checkedButton="@id/button_call"
-        android:orientation="horizontal"
-        bar:bar_checked_color="#2C97DE"
-        bar:bar_color="#ffffff"
-        bar:bar_pressed_color="#2C97DE">
-
-        <com.makeramen.segmented.custom.CenteredRadioImageButton
-            android:id="@+id/button_add"
-            style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_add" />
-
-        <com.makeramen.segmented.custom.CenteredRadioImageButton
-            android:id="@+id/button_call"
-            style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_call" />
-
-        <com.makeramen.segmented.custom.CenteredRadioImageButton
-            android:id="@+id/button_camera"
-            style="@style/RadioBtnStyle"
-            custom:msButton="@android:drawable/ic_menu_camera" />
-    </com.makeramen.segmented.custom.SegmentedRadioGroup>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#abc" />
-
-</LinearLayout>
+</ScrollView>

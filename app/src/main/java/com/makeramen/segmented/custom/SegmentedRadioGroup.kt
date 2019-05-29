@@ -1,5 +1,6 @@
 package com.makeramen.segmented.custom
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -27,7 +28,7 @@ class SegmentedRadioGroup : RadioGroup {
     var mBarCheckedColor: Int = Color.parseColor("#6B7478")
     @ColorInt
     var mBarPressedColor: Int = Color.parseColor("#525658")
-    var mBarStrokeWidth: Int = 1 // dp
+    private var mBarStrokeWidth: Int = 1 // dp
 
     constructor(context: Context) : super(context)
 
@@ -35,13 +36,14 @@ class SegmentedRadioGroup : RadioGroup {
         obtainAttributes(context, attrs)
     }
 
+    @SuppressLint("CustomViewStyleable")
     private fun obtainAttributes(context: Context, attrs: AttributeSet) {
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.SegmentTabLayout)
+        val ta = context.obtainStyledAttributes(attrs, R.styleable.SegmentRadioGroup)
 
-        mBarColor = ta.getColor(R.styleable.SegmentTabLayout_bar_color, mBarColor)
-        mBarCheckedColor = ta.getColor(R.styleable.SegmentTabLayout_bar_checked_color, mBarCheckedColor)
-        mBarPressedColor = ta.getColor(R.styleable.SegmentTabLayout_bar_pressed_color, mBarPressedColor)
-        mBarStrokeWidth = ta.getDimension(R.styleable.SegmentTabLayout_bar_stroke_width, 1f).toInt()
+        mBarColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_color, mBarColor)
+        mBarCheckedColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_checked_color, mBarCheckedColor)
+        mBarPressedColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_pressed_color, mBarPressedColor)
+        mBarStrokeWidth = ta.getDimension(R.styleable.SegmentRadioGroup_bar_stroke_width, 1f).toInt()
 
         ta.recycle()
     }
@@ -77,7 +79,7 @@ class SegmentedRadioGroup : RadioGroup {
                 showList[i].background = getRadioDrawable(R.drawable.shape_radio_middle)
             }
             showList[count - 1].background = getRadioDrawable(R.drawable.shape_radio_right)
-        } else if (count == 1) {// 只有一个，纯粹是二逼
+        } else if (count == 1) {
             showList[0].background = getRadioDrawable(R.drawable.shape_radio_single)
         }
     }

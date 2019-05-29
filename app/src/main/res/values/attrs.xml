@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MsButton">
-        <attr name="msButton" format="reference" />
+        <attr name="ms_drawable" format="reference" />
     </declare-styleable>
 
-    <declare-styleable name="SegmentTabLayout">
+    <declare-styleable name="SegmentRadioGroup">
         <attr name="bar_color" />
         <attr name="bar_checked_color" format="color" />
         <attr name="bar_pressed_color" format="color" />

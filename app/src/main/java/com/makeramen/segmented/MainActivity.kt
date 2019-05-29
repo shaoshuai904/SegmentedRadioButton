@@ -22,26 +22,10 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initRadioGroupListener()
         initViewPagerListener()
         initCheckBoxListener()
-
     }
 
-    private fun initRadioGroupListener() {
-        srg_single.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
-            if (checkedId == R.id.bt_single1) {
-                showToast("一个")
-            }
-        }
-        srg_bt.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
-            if (checkedId == R.id.bt_view1) {
-                showToast("111")
-            } else if (checkedId == R.id.bt_view2) {
-                showToast("222")
-            }
-        }
-    }
 
     private fun initViewPagerListener() {
         val ids = arrayListOf(
@@ -54,7 +38,6 @@ class MainActivity : Activity() {
                 getView(android.R.drawable.ic_menu_call),
                 getView(android.R.drawable.ic_menu_camera)
         )
-
         // listener
         segment_img.setOnCheckedChangeListener { _: RadioGroup, checkedId: Int ->
             vp_view_pager.currentItem = ids.indexOf(checkedId)
@@ -65,10 +48,8 @@ class MainActivity : Activity() {
                 segment_img.check(ids[position])
             }
         })
-
         // default setting
         segment_img.check(ids[0])
-
     }
 
     private fun initCheckBoxListener() {
@@ -79,8 +60,7 @@ class MainActivity : Activity() {
                 R.id.rb_two -> showToast("Two")
                 R.id.rb_three -> showToast("Three")
                 R.id.rb_fore -> showToast("Fore")
-                else -> {
-                }
+                else -> { }
             }
         }
         // CheckBox
