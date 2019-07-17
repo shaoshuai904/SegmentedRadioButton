@@ -45,6 +45,7 @@ class MainActivity : Activity() {
         vp_view_pager.adapter = BasePagerAdapter(views)
         vp_view_pager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) {
+                tv_title.visibility = if ((position % 2 == 0)) View.VISIBLE else View.GONE
                 segment_img.check(ids[position])
             }
         })
@@ -60,7 +61,8 @@ class MainActivity : Activity() {
                 R.id.rb_two -> showToast("Two")
                 R.id.rb_three -> showToast("Three")
                 R.id.rb_fore -> showToast("Fore")
-                else -> { }
+                else -> {
+                }
             }
         }
         // CheckBox

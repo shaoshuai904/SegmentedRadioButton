@@ -1,6 +1,5 @@
 <resources>
 
-    <dimen name="item_size">60dp</dimen>
-    <dimen name="angle_value">6dp</dimen>
-    <dimen name="divide_line">1px</dimen>
+    <dimen name="radius_value">6dp</dimen>
+    <dimen name="divide_line">1dp</dimen>
 </resources>
