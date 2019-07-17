@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
-import android.os.Build
 import android.support.annotation.ColorInt
 import android.util.AttributeSet
 import android.util.Log
@@ -43,16 +42,13 @@ class SegmentedRadioGroup : RadioGroup {
     @SuppressLint("CustomViewStyleable")
     private fun obtainAttributes(context: Context, attrs: AttributeSet) {
         setWillNotDraw(false)//重写onDraw方法,需要调用这个方法来清除flag
-//        clipChildren = false
-//        clipToPadding = false
 
         val ta = context.obtainStyledAttributes(attrs, R.styleable.SegmentRadioGroup)
-
         mBarColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_color, mBarColor)
         mBarCheckedColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_checked_color, mBarCheckedColor)
         mBarPressedColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_pressed_color, mBarPressedColor)
         mBarStrokeWidth = ta.getDimension(R.styleable.SegmentRadioGroup_bar_stroke_width, resources.getDimension(R.dimen.divide_line)).toInt()
-        mBarRadius = resources.getDimension(R.dimen.radius_value)
+        mBarRadius = ta.getDimension(R.styleable.SegmentRadioGroup_bar_radius, resources.getDimension(R.dimen.radius_value))
         ta.recycle()
     }
 
@@ -66,11 +62,13 @@ class SegmentedRadioGroup : RadioGroup {
     }
 
     private val showList = ArrayList<View>()
+    private val bgShape = GradientDrawable()
 
     private fun changeButtonsImages() {
-//        this.background = getRadioShape(RadioPosition.Single).apply {
-//            setStroke(mBarStrokeWidth, Color.YELLOW)
-//        }
+        this.background = bgShape.apply {
+            setColor(mBarCheckedColor)
+            cornerRadii = setRadius(mBarRadius, mBarRadius)
+        }
 
         // get visibility item view
         showList.clear()
@@ -125,13 +123,6 @@ class SegmentedRadioGroup : RadioGroup {
 
         paint.strokeWidth = mBarStrokeWidth.toFloat()
         paint.color = mBarCheckedColor
-        // draw 边框
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            canvas?.drawRoundRect(paddingLeft.toFloat(), 0F, (paddingLeft + width).toFloat(), height.toFloat(),
-                    mBarRadius, mBarRadius, paint)
-        } else { // tagAPI < 21
-
-        }
         // draw divider 分割线
         val padding = mBarStrokeWidth.toFloat()
         if (showList.size > 1) {
