@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.support.v7.widget.AppCompatRadioButton
 import android.util.AttributeSet
 import com.makeramen.segmented.R
+import kotlin.math.min
 
 /**
  * 图片居中的 RadioButton
@@ -15,7 +16,7 @@ import com.makeramen.segmented.R
  * @time 2017/3/29
  */
 class CenteredRadioImageButton : AppCompatRadioButton {
-    var mImage: Drawable? = null
+    private var mImage: Drawable? = null
 
     constructor(context: Context) : super(context)
 
@@ -25,13 +26,13 @@ class CenteredRadioImageButton : AppCompatRadioButton {
 
     @SuppressLint("CustomViewStyleable")
     private fun obtainAttributes(context: Context, attrs: AttributeSet) {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.MsButton)
+        val styleAttr = context.obtainStyledAttributes(attrs, R.styleable.MsButton)
         try {
-            mImage = a.getDrawable(R.styleable.MsButton_ms_drawable)
+            mImage = styleAttr.getDrawable(R.styleable.MsButton_ms_drawable)
         } finally {
             setButtonDrawable(android.R.color.transparent)
         }
-        a.recycle()
+        styleAttr.recycle()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -48,8 +49,7 @@ class CenteredRadioImageButton : AppCompatRadioButton {
             scale = if (imgWidth <= width && imgHeight <= height) {
                 1.0f
             } else {
-                Math.min(width.toFloat() / imgWidth.toFloat(),
-                        height.toFloat() / imgHeight.toFloat())
+                min(width.toFloat() / imgWidth.toFloat(), height.toFloat() / imgHeight.toFloat())
             }
 
             val dx = ((width - imgWidth * scale) * 0.5f + 0.5f).toInt()

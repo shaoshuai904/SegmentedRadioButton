@@ -9,7 +9,6 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
 import android.support.annotation.ColorInt
 import android.util.AttributeSet
-import android.util.Log
 import android.util.StateSet
 import android.view.View
 import android.widget.LinearLayout
@@ -49,13 +48,8 @@ class SegmentedRadioGroup : RadioGroup {
         mBarPressedColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_pressed_color, mBarPressedColor)
         mBarStrokeWidth = ta.getDimension(R.styleable.SegmentRadioGroup_bar_stroke_width, resources.getDimension(R.dimen.divide_line)).toInt()
         mBarRadius = ta.getDimension(R.styleable.SegmentRadioGroup_bar_radius, resources.getDimension(R.dimen.radius_value))
-        Log.e("xml value", "radius: $mBarRadius   stroke width : $mBarStrokeWidth")
         ta.recycle()
     }
-
-//    override fun onFinishInflate() {
-//        super.onFinishInflate()
-//    }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         super.onLayout(changed, l, t, r, b)
@@ -134,7 +128,6 @@ class SegmentedRadioGroup : RadioGroup {
                 val startX = (paddingLeft + tab.right + mBarStrokeWidth / 2).toFloat()
                 canvas?.drawLine(startX, padding, startX, height - padding, paint)
             }
-            Log.e("index", "${showList.size}")
         }
     }
 
