@@ -49,6 +49,7 @@ class SegmentedRadioGroup : RadioGroup {
         mBarPressedColor = ta.getColor(R.styleable.SegmentRadioGroup_bar_pressed_color, mBarPressedColor)
         mBarStrokeWidth = ta.getDimension(R.styleable.SegmentRadioGroup_bar_stroke_width, resources.getDimension(R.dimen.divide_line)).toInt()
         mBarRadius = ta.getDimension(R.styleable.SegmentRadioGroup_bar_radius, resources.getDimension(R.dimen.radius_value))
+        Log.e("xml value", "radius: $mBarRadius   stroke width : $mBarStrokeWidth")
         ta.recycle()
     }
 
@@ -80,26 +81,28 @@ class SegmentedRadioGroup : RadioGroup {
         }
         // set item background
         val margin = mBarStrokeWidth
+        val leftMargin = margin / 2 // e.g: 3/2 = 1
+        val rightMargin = margin - leftMargin// e.g: 3 - 1 = 2
         val count = showList.size
         if (count > 1) {
-            showList[0].apply {
+            showList.first().apply {
                 background = getRadioDrawable(RadioPosition.Left)
                 layoutParams = (layoutParams as LinearLayout.LayoutParams).apply {
-                    setMargins(margin, margin, margin / 2, margin)
+                    setMargins(margin, margin, rightMargin, margin)
                 }
             }
             for (i in 1 until count - 1) {
                 showList[i].apply {
                     background = getRadioDrawable(RadioPosition.Middle)
                     layoutParams = (layoutParams as LinearLayout.LayoutParams).apply {
-                        setMargins(margin / 2, margin, margin / 2, margin)
+                        setMargins(leftMargin, margin, rightMargin, margin)
                     }
                 }
             }
-            showList[count - 1].apply {
+            showList.last().apply {
                 background = getRadioDrawable(RadioPosition.Right)
                 layoutParams = (layoutParams as LinearLayout.LayoutParams).apply {
-                    setMargins(margin / 2, margin, margin, margin)
+                    setMargins(leftMargin, margin, margin, margin)
                 }
             }
         } else if (count == 1) {

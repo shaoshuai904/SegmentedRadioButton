@@ -31,7 +31,9 @@
             android:orientation="horizontal"
             bar:bar_checked_color="#009688"
             bar:bar_color="#EDEBEB"
-            bar:bar_pressed_color="#01675E">
+            bar:bar_pressed_color="#01675E"
+            bar:bar_radius="8dp"
+            bar:bar_stroke_width="1dp">
 
             <RadioButton
                 android:id="@+id/rb_one"
@@ -104,7 +106,9 @@
             android:orientation="horizontal"
             bar:bar_checked_color="#2C97DE"
             bar:bar_color="#ffffff"
-            bar:bar_pressed_color="#2C97DE">
+            bar:bar_pressed_color="#2C97DE"
+            bar:bar_radius="6dp"
+            bar:bar_stroke_width="1px">
 
             <com.makeramen.segmented.custom.CenteredRadioImageButton
                 android:id="@+id/button_add"
